@@ -1,25 +1,40 @@
-# llm/gemini_client.py
+# clients/gemini_client.py
+import base64
+import json
 import google.generativeai as genai
-import os
+from PIL import Image
+import io
 
-class GeminiExtractor:
-    def __init__(self, model: str = "gemini-1.5-pro"):
-        """
-        Wrapper for Google Gemini API.
-        Requires: export GOOGLE_API_KEY="your_key"
-        """
-        api_key = os.getenv("GOOGLE_API_KEY")
-        if not api_key:
-            raise ValueError("GOOGLE_API_KEY not set.")
-        genai.configure(api_key=api_key)
-        self.model = genai.GenerativeModel(model)
+def init_gemini_client(api_key: str):
+    """
+    Initialize Gemini client using API key.
+    """
+    genai.configure(api_key=api_key)
+    model = genai.GenerativeModel("gemini-2.5-pro")
+    return model
 
-    def extract(self, text: str, prompt_template: str) -> str:
-        """Send text + prompt to Gemini model"""
-        prompt = prompt_template.format(text=text)
-        try:
-            response = self.model.generate_content(prompt)
-            return response.text.strip()
-        except Exception as e:
-            print(f"[GeminiExtractor] Error: {e}")
-            return "ERROR"
+
+def analyze_image_gemini(model, image_path, prompt):
+    """
+    Given a Gemini model instance, image path, and text prompt,
+    returns the list of predicted structures.
+    """
+    # read images 
+    with open(image_path, "rb") as f:
+        image_bytes = f.read()
+    image = Image.open(io.BytesIO(image_bytes))
+
+    try:
+        response = model.generate_content([prompt, image])
+        text = response.text.strip()
+    except Exception as e:
+        text = f"ERROR: {e}"
+
+    # JSON output 
+    try:
+        structures = json.loads(text)
+    except Exception:
+        # if not standard JSON, then return the original text
+        structures = [text]
+
+    return structures
