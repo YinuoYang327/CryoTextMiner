@@ -1,29 +1,56 @@
-# llm/claude_client.py
-import os
-from anthropic import Anthropic
+# clients/claude_client.py
+import base64
+import json
+import anthropic
 
-class ClaudeExtractor:
-    def __init__(self, model: str = "claude-3-5-sonnet-20240620"):
-        """
-        Wrapper for Anthropic Claude API.
-        Requires: export ANTHROPIC_API_KEY="your_key"
-        """
-        api_key = os.getenv("ANTHROPIC_API_KEY")
-        if not api_key:
-            raise ValueError("ANTHROPIC_API_KEY not set.")
-        self.client = Anthropic(api_key=api_key)
-        self.model = model
+def init_claude_client(api_key: str):
+    """
+    Initialize Anthropic Claude client using API key.
+    """
+    return anthropic.Anthropic(api_key=api_key)
 
-    def extract(self, text: str, prompt_template: str) -> str:
-        """Send text + prompt to Claude model"""
-        prompt = prompt_template.format(text=text)
-        try:
-            response = self.client.messages.create(
-                model=self.model,
-                max_tokens=512,
-                messages=[{"role": "user", "content": prompt}]
-            )
-            return response.content[0].text.strip()
-        except Exception as e:
-            print(f"[ClaudeExtractor] Error: {e}")
-            return "ERROR"
+
+def analyze_image_claude(client, image_path, prompt):
+    """
+    Given a Claude client, image path, and prompt,
+    returns a list of predicted structures.
+    """
+    with open(image_path, "rb") as f:
+        img_bytes = f.read()
+    b64_image = base64.b64encode(img_bytes).decode("utf-8")
+
+    try:
+        response = client.messages.create(
+            model="claude-sonnet-4-20250514",
+            max_tokens=500,
+            messages=[
+                {
+                    "role": "user",
+                    "content": [
+                        {"type": "text", "text": (
+                            "You are a biomedical image analysis expert. "
+                            "Identify the subcellular structures visible in this electron microscopy image.\n\n"
+                            + prompt
+                        )},
+                        {
+                            "type": "image",
+                            "source": {
+                                "type": "base64",
+                                "media_type": "image/png",
+                                "data": b64_image
+                            }
+                        }
+                    ]
+                }
+            ]
+        )
+        text = response.content[0].text.strip()
+    except Exception as e:
+        text = f"ERROR: {e}"
+
+    try:
+        structures = json.loads(text)
+    except Exception:
+        structures = [text]
+
+    return structures
