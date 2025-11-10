@@ -1,24 +1,32 @@
-prompt_template = """
-You are a biology assistant that identifies subcellular structures.
+import os
+from dotenv import load_dotenv
 
-Input:
-"{text}"
+# load .env
+load_dotenv()
 
-Output a JSON list of structures mentioned.
-"""
+# get API keys
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY")
 
-text = "This EM image shows mitochondria and the endoplasmic reticulum."
 
-from llm.openai_client import OpenAIExtractor
-from llm.gemini_client import GeminiExtractor
-from llm.claude_client import ClaudeExtractor
+from llm.openai_client import init_openai_client
+from llm.gemini_client import init_gemini_client
+from llm.claude_client import init_claude_client
 
-clients = [
-    OpenAIExtractor("gpt-4o-mini"),
-    GeminiExtractor("gemini-1.5-pro"),
-    ClaudeExtractor("claude-3-5-sonnet-20240620")
-]
+openai_client = init_openai_client(OPENAI_API_KEY)
+gemini_model = init_gemini_client(GEMINI_API_KEY)
+claude_client = init_claude_client(ANTHROPIC_API_KEY)
 
-for c in clients:
-    print(f"\n=== {c.__class__.__name__} ===")
-    print(c.extract(text, prompt_template))
+from run import run_all_models
+from evaluate_vlm_results import evaluate_results
+
+if __name__ == "__main__":
+    run_all_models(
+        openai_client=openai_client,
+        gemini_model=gemini_model,
+        claude_client=claude_client,
+        prompt_path="prompts/simple_prompt.txt"
+    )
+    evaluate_results("results/all_models_summary.csv")
+
