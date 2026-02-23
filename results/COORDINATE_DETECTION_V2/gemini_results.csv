@@ -1,0 +1,4 @@
+image_id,structures,gemini_predictions
+z187,"['lysosome', 'membrane', 'ribosome', 'microtubule']","{'lysosome': [730, 650], 'mitochondrion': [650, 450], 'membrane': [400, 175]}"
+z197,"['lysosome', 'mitochondrion', 'membrane', 'ribosome', 'microtubule']","{'lysosome': [730, 680], 'mitochondrion': [250, 325], 'membrane': [755, 415]}"
+z207,"['lysosome', 'mitochondrion', 'membrane', 'ribosome', 'microtubule']","{'lysosome': [728, 678], 'mitochondrion': [415, 440], 'membrane': [250, 300]}"

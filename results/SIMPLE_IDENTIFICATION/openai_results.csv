@@ -1,0 +1,4 @@
+model,image_id,ground_truth,predictions
+openai,HEK_Run102505_z187,"['lysosome', 'membrane', 'ribosome', 'microtubule']",['- Mitochondria\n- Vesicles\n- Cytoskeleton filaments\n- Ribosomes\n- Endoplasmic reticulum (ER) structures']
+openai,HEK_Run102505_z197,"['lysosome', 'mitochondrion', 'membrane', 'ribosome', 'microtubule']",['- Mitochondria\n- Vesicles\n- Microtubules\n- Cytoplasm']
+openai,HEK_Run102505_z207,"['lysosome', 'mitochondrion', 'membrane', 'ribosome', 'microtubule']","['- Ribosomes\n- Endoplasmic reticulum\n- Mitochondria\n- Vesicles\n- Cytoskeleton elements (e.g., microtubules, actin filaments)']"

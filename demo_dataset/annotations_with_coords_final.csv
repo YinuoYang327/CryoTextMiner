@@ -1,0 +1,4 @@
+image_path,image_id,structures,spatial_context,gt_coords
+demo_dataset/images/z187.png,z187,"['lysosome', 'membrane', 'ribosome', 'microtubule']",Large prominent lysosome at center-left; clear membrane segments; dense granular background of ribosomes.,"{""lysosome"": [602, 529], ""mitochondrion"": [591, 768], ""membrane"": [540, 564]}"
+demo_dataset/images/z197.png,z197,"['lysosome', 'mitochondrion', 'membrane', 'ribosome', 'microtubule']",Large central lysosome complex; mitochondria confirmed at periphery; high density of ribosomes.,"{""lysosome"": [605, 535], ""mitochondrion"": [582, 773], ""membrane"": [546, 574]}"
+demo_dataset/images/z207.png,z207,"['lysosome', 'mitochondrion', 'membrane', 'ribosome', 'microtubule']",Central lysosome remains prominent; persistent peripheral mitochondria; dense ribosome field.,"{""lysosome"": [602, 537], ""mitochondrion"": [613, 669], ""membrane"": [539, 571]}"

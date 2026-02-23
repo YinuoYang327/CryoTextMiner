@@ -1,0 +1,30 @@
+--- Launching Post-Processing Evaluation: Segmentation ---
+
+Model      | Image      | Organelle       | IoU (%)   
+------------------------------------------------------------
+gemini     | z187       | lysosome        |   43.57%
+gemini     | z187       | mitochondrion   |    0.00%
+gemini     | z187       | membrane        |    0.00%
+gemini     | z197       | lysosome        |   83.60%
+gemini     | z197       | mitochondrion   |    0.00%
+gemini     | z197       | membrane        |    0.00%
+gemini     | z207       | lysosome        |   20.18%
+gemini     | z207       | mitochondrion   |    0.00%
+gemini     | z207       | membrane        |    0.00%
+claude     | z187       | lysosome        |   48.38%
+claude     | z187       | mitochondrion   |    0.00%
+claude     | z187       | membrane        |    0.00%
+claude     | z197       | lysosome        |   62.13%
+claude     | z197       | mitochondrion   |    0.00%
+claude     | z197       | membrane        |    0.00%
+claude     | z207       | lysosome        |   70.27%
+claude     | z207       | mitochondrion   |    0.00%
+claude     | z207       | membrane        |    0.00%
+
+============================================================
+FINAL SEGMENTATION PERFORMANCE SUMMARY (IoU)
+============================================================
+Model: GEMINI   | Mean IoU: 16.37%
+Model: CLAUDE   | Mean IoU: 20.09%
+Model: OPENAI   | Mean IoU: 0.00% (Refusal/Error)
+------------------------------------------------------------

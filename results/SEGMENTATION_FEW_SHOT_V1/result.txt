@@ -1,0 +1,47 @@
+--- Launching Post-Processing Evaluation: Segmentation ---
+
+Model      | Image      | Organelle       | IoU (%)   
+------------------------------------------------------------
+openai     | z187       | lysosome        |   16.19%
+openai     | z187       | mitochondrion   |    4.27%
+openai     | z187       | membrane        |   95.88%
+openai     | z197       | lysosome        |   19.26%
+openai     | z197       | mitochondrion   |    4.72%
+openai     | z197       | membrane        |   83.25%
+openai     | z207       | lysosome        |   20.63%
+openai     | z207       | mitochondrion   |    4.43%
+openai     | z207       | membrane        |   81.93%
+gemini     | z187       | lysosome        |   43.07%
+gemini     | z187       | mitochondrion   |    2.81%
+gemini     | z187       | membrane        |   97.51%
+gemini     | z197       | lysosome        |   65.83%
+gemini     | z197       | mitochondrion   |   29.53%
+gemini     | z197       | membrane        |   95.59%
+gemini     | z207       | lysosome        |   13.34%
+gemini     | z207       | mitochondrion   |   91.51%
+gemini     | z207       | membrane        |   98.10%
+claude     | z187       | lysosome        |   60.12%
+claude     | z187       | mitochondrion   |   44.55%
+claude     | z187       | membrane        |   48.46%
+claude     | z197       | lysosome        |   42.78%
+claude     | z197       | mitochondrion   |   42.22%
+claude     | z197       | membrane        |   50.39%
+claude     | z207       | lysosome        |   53.46%
+claude     | z207       | mitochondrion   |   53.91%
+claude     | z207       | membrane        |   64.75%
+
+============================================================
+FINAL PERFORMANCE SUMMARY: FEW-SHOT GENERALIZATION
+============================================================
+Model: OPENAI  
+ - [Generalization] Mean IoU (New Images): 35.70%
+ - [Memorization]   IoU (Prompt Example): 38.78%
+----------------------------------------
+Model: GEMINI  
+ - [Generalization] Mean IoU (New Images): 65.65%
+ - [Memorization]   IoU (Prompt Example): 47.80%
+----------------------------------------
+Model: CLAUDE  
+ - [Generalization] Mean IoU (New Images): 51.25%
+ - [Memorization]   IoU (Prompt Example): 51.05%
+----------------------------------------

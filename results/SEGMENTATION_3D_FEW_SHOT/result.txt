@@ -1,0 +1,39 @@
+--- Launching Post-Processing Evaluation: Segmentation ---
+
+Model      | Image      | Organelle       | IoU (%)   
+-----------------------------------------------------------------
+openai     | z187       | lysosome        |  100.00%
+openai     | z187       | mitochondrion   |  100.00%
+openai     | z187       | membrane        |  100.00%
+openai     | z197       | lysosome        |   84.08%
+openai     | z197       | mitochondrion   |   89.13%
+openai     | z197       | membrane        |   99.50%
+openai     | z207       | lysosome        |   76.66%
+openai     | z207       | mitochondrion   |   93.51%
+openai     | z207       | membrane        |   98.81%
+gemini     | z187       | lysosome        |   77.59%
+gemini     | z187       | mitochondrion   |   98.07%
+gemini     | z187       | membrane        |   96.07%
+gemini     | z197       | lysosome        |   86.44%
+gemini     | z197       | mitochondrion   |   87.59%
+gemini     | z197       | membrane        |   99.00%
+gemini     | z207       | lysosome        |   81.46%
+gemini     | z207       | mitochondrion   |   90.79%
+gemini     | z207       | membrane        |   96.94%
+claude     | z187       | lysosome        |   30.23%
+claude     | z187       | mitochondrion   |   96.06%
+claude     | z187       | membrane        |   94.67%
+claude     | z197       | lysosome        |   41.01%
+claude     | z197       | mitochondrion   |   82.94%
+claude     | z197       | membrane        |   94.71%
+claude     | z207       | lysosome        |   51.55%
+claude     | z207       | mitochondrion   |   94.09%
+claude     | z207       | membrane        |   95.80%
+
+=================================================================
+FINAL SEGMENTATION SUMMARY (IoU)
+=================================================================
+Model: OPENAI   | Generalization Mean: 90.28% | Memorization: 100.00%
+Model: GEMINI   | Generalization Mean: 90.37% | Memorization: 90.58%
+Model: CLAUDE   | Generalization Mean: 76.68% | Memorization: 73.65%
+-----------------------------------------------------------------

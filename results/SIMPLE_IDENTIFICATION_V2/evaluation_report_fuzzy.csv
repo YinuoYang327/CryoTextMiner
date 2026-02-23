@@ -1,0 +1,4 @@
+model,total_samples,lysosome_recall,membrane_recall,microtubule_recall,mitochondrion_recall,ribosome_recall
+openai,3,100.0%,100.0%,100.0%,100.0%,100.0%
+gemini,3,100.0%,100.0%,0.0%,100.0%,100.0%
+claude,3,100.0%,100.0%,0.0%,100.0%,100.0%

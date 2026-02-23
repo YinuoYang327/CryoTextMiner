@@ -1,0 +1,32 @@
+--- Launching Post-Processing Evaluation: Coordinate Detection ---
+
+Model      | Image      | Organelle       | Status     | Error (nm)
+--------------------------------------------------------------------------------
+openai     | z187       | lysosome        | REFUSED    | N/A
+openai     | z197       | lysosome        | REFUSED    | N/A
+openai     | z207       | lysosome        | REFUSED    | N/A
+gemini     | z187       | lysosome        | HIT        | 114.61 nm
+gemini     | z197       | lysosome        | HIT        | 172.49 nm
+gemini     | z207       | lysosome        | HIT        | 187.24 nm
+claude     | z187       | lysosome        | MISS       | >500.00 nm
+claude     | z197       | lysosome        | MISS       | >500.00 nm
+claude     | z207       | lysosome        | MISS       | >500.00 nm
+
+============================================================
+FINAL SPATIAL PERFORMANCE SUMMARY (1011 SCALE)
+============================================================
+Model: OPENAI
+ - Success Rate (<150px): 0.0%
+ - Precision (Mean HIT Error): 0.00 nm
+ - Reliability (Mean Total Error): N/A (Safety Refusal)
+------------------------------
+Model: GEMINI
+ - Success Rate (<150px): 33.3%
+ - Precision (Mean HIT Error): 158.11 nm
+ - Reliability (Mean Total Error): 158.11 nm
+------------------------------
+Model: CLAUDE
+ - Success Rate (<150px): 0.0%
+ - Precision (Mean HIT Error): 0.00 nm
+ - Reliability (Mean Total Error): >500.00 nm
+------------------------------

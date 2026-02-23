@@ -1,0 +1,4 @@
+image_path,image_id,structures,spatial_context
+demo_dataset/images/z187.png,HEK_Run102505_z187,"['lysosome', 'membrane', 'ribosome', 'microtubule']","Large prominent lysosome at center-left; clear membrane segments; dense granular background of ~2300 cytosolic ribosomes; visible linear microtubule filaments."
+demo_dataset/images/z197.png,HEK_Run102505_z197,"['lysosome', 'mitochondrion', 'membrane', 'ribosome', 'microtubule']","Large central lysosome complex (multi-profile); mitochondria confirmed at top-right and bottom periphery; high density of ribosomes and continuous microtubule tracks."
+demo_dataset/images/z207.png,HEK_Run102505_z207,"['lysosome', 'mitochondrion', 'membrane', 'ribosome', 'microtubule']","Central lysosome persists; mitochondria mask visible in peripheral regions; dense ribosome field and clear linear microtubule filaments traversing the slice."

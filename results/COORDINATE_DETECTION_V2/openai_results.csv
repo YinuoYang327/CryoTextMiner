@@ -1,0 +1,4 @@
+image_id,structures,openai_predictions
+z187,"['lysosome', 'membrane', 'ribosome', 'microtubule']","{'lysosome': [550, 550], 'mitochondrion': [650, 750], 'membrane': [300, 200]}"
+z197,"['lysosome', 'mitochondrion', 'membrane', 'ribosome', 'microtubule']","{'lysosome': [600, 650], 'mitochondrion': [450, 550], 'membrane': [300, 400]}"
+z207,"['lysosome', 'mitochondrion', 'membrane', 'ribosome', 'microtubule']","{'lysosome': [650, 650], 'mitochondrion': [550, 450], 'membrane': [300, 300]}"

@@ -1,0 +1,4 @@
+image_id,gt_bboxes,claude_predictions
+z187,"{""lysosome"": [373, 275, 849, 797], ""mitochondrion"": [29, 34, 1007, 999], ""membrane"": [28, 13, 1010, 1009]}","{'lysosome': [450, 420, 780, 750], 'mitochondrion': [200, 150, 400, 350], 'membrane': [300, 200, 700, 800]}"
+z197,"{""lysosome"": [382, 297, 840, 753], ""mitochondrion"": [27, 133, 1007, 1004], ""membrane"": [28, 18, 1010, 1009]}","{'lysosome': [420, 380, 780, 740], 'mitochondrion': [200, 150, 400, 350], 'membrane': [300, 200, 320, 800]}"
+z207,"{""lysosome"": [393, 303, 833, 746], ""mitochondrion"": [26, 76, 1003, 1007], ""membrane"": [28, 2, 1010, 1009]}","{'lysosome': [420, 480, 780, 840], 'mitochondrion': [200, 150, 400, 350], 'membrane': [300, 200, 700, 800]}"

@@ -1,0 +1,36 @@
+--- Launching Post-Processing Evaluation: Segmentation ---
+
+Model      | Image      | Organelle       | IoU (%)   
+-----------------------------------------------------------------
+openai     | z187       | lysosome        |    9.14%
+openai     | z187       | mitochondrion   |    3.21%
+openai     | z187       | membrane        |   25.61%
+openai     | z197       | lysosome        |    2.40%
+openai     | z197       | mitochondrion   |    0.59%
+openai     | z197       | membrane        |    9.29%
+gemini     | z187       | lysosome        |   24.61%
+gemini     | z187       | mitochondrion   |    4.95%
+gemini     | z187       | membrane        |    0.90%
+gemini     | z197       | lysosome        |   53.41%
+gemini     | z197       | mitochondrion   |    0.00%
+gemini     | z197       | membrane        |    4.12%
+gemini     | z207       | lysosome        |   30.03%
+gemini     | z207       | mitochondrion   |    0.97%
+gemini     | z207       | membrane        |    4.81%
+claude     | z187       | lysosome        |    4.09%
+claude     | z187       | mitochondrion   |    1.08%
+claude     | z187       | membrane        |   30.72%
+claude     | z197       | lysosome        |    4.86%
+claude     | z197       | mitochondrion   |    2.01%
+claude     | z197       | membrane        |    6.41%
+claude     | z207       | lysosome        |    5.21%
+claude     | z207       | mitochondrion   |    9.94%
+claude     | z207       | membrane        |   16.23%
+
+=================================================================
+FINAL SEGMENTATION SUMMARY (IoU)
+=================================================================
+Model: OPENAI   | New Images Mean: 4.09%  | Example IoU: 12.65%
+Model: GEMINI   | New Images Mean: 15.56% | Example IoU: 10.15%
+Model: CLAUDE   | New Images Mean: 7.44%  | Example IoU: 11.96%
+-----------------------------------------------------------------

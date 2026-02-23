@@ -1,0 +1,50 @@
+--- Launching Post-Processing Evaluation: Coordinate Detection ---
+
+Model      | Image      | Organelle       | Status     | Error (nm)
+--------------------------------------------------------------------------------
+openai     | z187       | lysosome        | HIT        | 84.04 nm
+openai     | z187       | mitochondrion   | HIT        | 92.43 nm
+openai     | z187       | membrane        | OUTLIER    | 653.35 nm
+openai     | z197       | lysosome        | HIT        | 172.49 nm
+openai     | z197       | mitochondrion   | OUTLIER    | 388.32 nm
+openai     | z197       | membrane        | OUTLIER    | 451.52 nm
+openai     | z207       | lysosome        | HIT        | 183.97 nm
+openai     | z207       | mitochondrion   | OUTLIER    | 341.48 nm
+openai     | z207       | membrane        | OUTLIER    | 541.46 nm
+gemini     | z187       | lysosome        | OUTLIER    | 263.94 nm
+gemini     | z187       | mitochondrion   | OUTLIER    | 484.66 nm
+gemini     | z187       | membrane        | OUTLIER    | 619.52 nm
+gemini     | z197       | lysosome        | OUTLIER    | 286.88 nm
+gemini     | z197       | mitochondrion   | OUTLIER    | 835.58 nm
+gemini     | z197       | membrane        | OUTLIER    | 393.52 nm
+gemini     | z207       | lysosome        | OUTLIER    | 283.36 nm
+gemini     | z207       | mitochondrion   | OUTLIER    | 453.64 nm
+gemini     | z207       | membrane        | OUTLIER    | 593.68 nm
+claude     | z187       | lysosome        | HIT        | 164.22 nm
+claude     | z187       | mitochondrion   | OUTLIER    | 462.09 nm
+claude     | z187       | membrane        | OUTLIER    | 515.18 nm
+claude     | z197       | lysosome        | OUTLIER    | 315.13 nm
+claude     | z197       | mitochondrion   | OUTLIER    | 469.27 nm
+claude     | z197       | membrane        | HIT        | 129.40 nm
+claude     | z207       | lysosome        | HIT        | 223.16 nm
+claude     | z207       | mitochondrion   | OUTLIER    | 504.67 nm
+claude     | z207       | membrane        | OUTLIER    | 517.53 nm
+
+============================================================
+FINAL SPATIAL PERFORMANCE SUMMARY (1011 SCALE)
+============================================================
+Model: OPENAI
+ - Success Rate (<150px): 44.4%
+ - Precision (Mean HIT Error): 133.23 nm
+ - Reliability (Mean Total Error): 323.23 nm
+------------------------------
+Model: GEMINI
+ - Success Rate (<150px): 0.0%
+ - Precision (Mean HIT Error): 0.00 nm
+ - Reliability (Mean Total Error): 468.31 nm
+------------------------------
+Model: CLAUDE
+ - Success Rate (<150px): 33.3%
+ - Precision (Mean HIT Error): 172.26 nm
+ - Reliability (Mean Total Error): 366.74 nm
+------------------------------
