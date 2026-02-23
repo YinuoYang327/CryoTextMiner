@@ -1,5 +1,3 @@
-# clients/gemini_client.py
-import base64
 import json
 import google.generativeai as genai
 from PIL import Image
@@ -7,34 +5,37 @@ import io
 
 def init_gemini_client(api_key: str):
     """
-    Initialize Gemini client using API key.
+    Initialize the Google Gemini client with the provided API key.
     """
     genai.configure(api_key=api_key)
-    model = genai.GenerativeModel("gemini-2.5-pro")
+    # Using 1.5-pro for best multimodal performance in scientific imaging
+    model = genai.GenerativeModel("gemini-2.5-pro") 
     return model
 
-
-def analyze_image_gemini(model, image_path, prompt):
+def analyze_image_gemini(model, image_path, prompt_text):
     """
-    Given a Gemini model instance, image path, and text prompt,
-    returns the list of predicted structures.
+    Inference function for Gemini. 
+    Accepts model instance, image path, and pre-loaded prompt string.
     """
-    # read images 
     with open(image_path, "rb") as f:
         image_bytes = f.read()
     image = Image.open(io.BytesIO(image_bytes))
 
     try:
-        response = model.generate_content([prompt, image])
+        # Temperature=0 ensures reproducible scientific results
+        response = model.generate_content(
+            [prompt_text, image],
+            generation_config={"temperature": 0}
+        )
         text = response.text.strip()
     except Exception as e:
         text = f"ERROR: {e}"
 
-    # JSON output 
+    # Clean Markdown JSON tags if present and parse
     try:
-        structures = json.loads(text)
+        clean_text = text.replace('```json', '').replace('```', '').strip()
+        structures = json.loads(clean_text)
     except Exception:
-        # if not standard JSON, then return the original text
         structures = [text]
 
     return structures
